@@ -7,26 +7,33 @@
           rel="stylesheet"
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
           crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{../static/styles/styles.css}">
 
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" th:href="@{/basket}">Go to basket</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" th:href="@{/about}">About</a>
-                    </li>
-                </ul>
+    <header th:replace="layout :: header"></header>
 
-            </div>
-        </nav>
-    </header>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Cost</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${items}">
+                <td><span th:text="${item.name}"> Name</span></td>
+                <td><span th:text="${item.cost}"> Cost</span></td>
+                <td><span th:text="${item.quantity}"> Quantity</span></td>
+                <td>
+                    <a class="btn btn-secondary btn-sm" th:href="@{/edit}">Edit Item</a>
+                    <a class="btn btn-secondary btn-sm" th:href="@{/delete}">Remove Item</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-    <button><a th:href="@{/add}">Add Item</a></button>
-    <button><a th:href="@{/edit}">Edit Item</a></button>
+    <a class="btn btn-secondary btn-lg" th:href="@{/add}">Add Item</a>
 </body>
 </html>

@@ -7,24 +7,16 @@
         rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
         crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{../static/styles/styles.css}">
 
 </head>
 <body>
-  <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-      <div class="container">
-        <ul class="navbar-nav flex-grow-1">
-          <li class="nav-item">
-            <a class="nav-link text-dark" th:href="@{/basket}">Go to basket</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" th:href="@{/about}">About</a>
-          </li>
-        </ul>
+  <header th:replace="layout :: header"></header>
 
-      </div>
-    </nav>
-  </header>
+  <h5>About this app</h5>
+  <p>This is a simple shopping list app developed as the final project for AUEB's Coding Factory.<br>
+  Add the items you want to buy to your shopping basket. You can edit or remove any items in the shopping basket.<br>
+  When you are finished, press the email button to send the list to your email.</p>
 
 </body>
 </html>
