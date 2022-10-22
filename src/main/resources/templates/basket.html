@@ -13,7 +13,7 @@
 <body>
     <header th:replace="layout :: header"></header>
 
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Name</th>
@@ -23,9 +23,9 @@
         </thead>
         <tbody>
             <tr th:each="item : ${items}">
-                <td><span th:text="${item.name}"> Name</span></td>
-                <td><span th:text="${item.cost}"> Cost</span></td>
-                <td><span th:text="${item.quantity}"> Quantity</span></td>
+                <td><span th:text="${item.getItemName()}"> Name</span></td>
+                <td><span th:text="${item.getItemCost()}"> Cost</span></td>
+                <td><span th:text="${item.getQuantity()}"> Quantity</span></td>
                 <td>
                     <a class="btn btn-secondary btn-sm" th:href="@{/edit}">Edit Item</a>
                     <a class="btn btn-secondary btn-sm" th:href="@{/delete}">Remove Item</a>
@@ -35,5 +35,6 @@
     </table>
 
     <a class="btn btn-secondary btn-lg" th:href="@{/add}">Add Item</a>
+    <a class="btn btn-secondary btn-lg" th:href="@{/email}">Email list</a>
 </body>
 </html>
