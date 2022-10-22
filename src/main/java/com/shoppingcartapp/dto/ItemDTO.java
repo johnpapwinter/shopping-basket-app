@@ -2,8 +2,6 @@ package com.shoppingcartapp.dto;
 
 import lombok.*;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -14,4 +12,13 @@ public class ItemDTO {
     private Float itemCost;
 
     private Integer quantity;
+
+    public ItemDTO() {
+    }
+
+    public ItemDTO(String itemName, Float itemCost, Integer quantity) {
+        this.itemName = itemName;
+        this.itemCost = itemCost;
+        this.quantity = quantity;
+    }
 }

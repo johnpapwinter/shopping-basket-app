@@ -13,29 +13,29 @@
 <body>
     <header th:replace="layout :: header"></header>
 
-    <form method="post">
+    <form action="#" th:action="@{/add/save}" th:object="${formData}" method="post">
         <div class="row mb-3">
             <label class="col-md-1 col-form-label">Item name</label>
             <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Enter item name" />
+                <input type="text" class="form-control" placeholder="Enter item name" th:field="*{itemName}" autofocus />
             </div>
         </div>
 
         <div class="row mb-3">
             <label class="col-md-1 col-form-label">Item cost</label>
             <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Enter item cost" />
+                <input type="text" class="form-control" placeholder="Enter item cost" th:field="*{itemCost}" />
             </div>
         </div>
 
         <div class="row mb-3">
             <label class="col-md-1 col-form-label">Item quantity</label>
             <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Enter item quantity" />
+                <input type="text" class="form-control" placeholder="Enter item quantity" th:field="*{quantity}" />
             </div>
         </div>
 
-        <button class="btn btn-secondary" type="submit">Add item</button>
+        <input class="btn btn-secondary" type="submit" value="Add Item"/>
     </form>
 
 </body>

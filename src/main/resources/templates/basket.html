@@ -23,9 +23,9 @@
         </thead>
         <tbody>
             <tr th:each="item : ${items}">
-                <td><span th:text="${item.getItemName()}"> Name</span></td>
-                <td><span th:text="${item.getItemCost()}"> Cost</span></td>
-                <td><span th:text="${item.getQuantity()}"> Quantity</span></td>
+                <td><span th:text="${item.itemName}"> Name</span></td>
+                <td><span th:text="${item.itemCost}"> Cost</span></td>
+                <td><span th:text="${item.quantity}"> Quantity</span></td>
                 <td>
                     <a class="btn btn-secondary btn-sm" th:href="@{/edit}">Edit Item</a>
                     <a class="btn btn-secondary btn-sm" th:href="@{/delete}">Remove Item</a>
