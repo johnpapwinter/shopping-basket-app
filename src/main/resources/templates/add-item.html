@@ -13,5 +13,30 @@
 <body>
     <header th:replace="layout :: header"></header>
 
+    <form method="post">
+        <div class="row mb-3">
+            <label class="col-md-1 col-form-label">Item name</label>
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="Enter item name" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-md-1 col-form-label">Item cost</label>
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="Enter item cost" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-md-1 col-form-label">Item quantity</label>
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="Enter item quantity" />
+            </div>
+        </div>
+
+        <button class="btn btn-secondary" type="submit">Add item</button>
+    </form>
+
 </body>
 </html>
