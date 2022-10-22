@@ -13,5 +13,30 @@
 <body>
     <header th:replace="layout :: header"></header>
 
+    <form action="#" method="post">
+        <div class="row mb-3">
+            <label class="col-md-1 col-form-label">Item name</label>
+            <div class="col-md-6">
+                <input type="text" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-md-1 col-form-label">Item cost</label>
+            <div class="col-md-6">
+                <input type="text" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-md-1 col-form-label">Item quantity</label>
+            <div class="col-md-6">
+                <input type="text" class="form-control" />
+            </div>
+        </div>
+
+        <input class="btn btn-secondary" type="submit" value="Edit Item"/>
+    </form>
+
 </body>
 </html>
