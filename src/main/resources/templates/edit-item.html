@@ -13,25 +13,25 @@
 <body>
     <header th:replace="layout :: header"></header>
 
-    <form action="#" method="post">
+    <form action="#" method="post" th:action="'/edit/' + ${item.itemName}" th:object="${item}">
         <div class="row mb-3">
             <label class="col-md-1 col-form-label">Item name</label>
             <div class="col-md-6">
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" th:field="*{itemName}" />
             </div>
         </div>
 
         <div class="row mb-3">
             <label class="col-md-1 col-form-label">Item cost</label>
             <div class="col-md-6">
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" th:field="*{itemCost}" />
             </div>
         </div>
 
         <div class="row mb-3">
             <label class="col-md-1 col-form-label">Item quantity</label>
             <div class="col-md-6">
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" th:field="*{quantity}" />
             </div>
         </div>
 
