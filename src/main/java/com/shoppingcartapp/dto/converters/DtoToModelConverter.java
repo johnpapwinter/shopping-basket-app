@@ -13,7 +13,7 @@ public class DtoToModelConverter {
 
         item.setItemName(itemDTO.getItemName());
         item.setItemCost(itemDTO.getItemCost());
-        item.setQuantity(item.getQuantity());
+        item.setQuantity(itemDTO.getQuantity());
 
         return item;
     }
