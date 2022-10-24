@@ -28,7 +28,7 @@
                 <td><span th:text="${item.quantity}"> Quantity</span></td>
                 <td>
                     <a class="btn btn-secondary btn-sm" th:href="'/edit/' + ${item.itemName}">Edit Item</a>
-                    <a class="btn btn-secondary btn-sm" th:href="@{/delete}">Remove Item</a>
+                    <a class="btn btn-secondary btn-sm" th:href="'/delete/' + ${item.itemName}">Remove Item</a>
                 </td>
             </tr>
         </tbody>

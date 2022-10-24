@@ -60,4 +60,10 @@ public class ItemController {
         shoppingCartService.updateItem(itemName, itemDTO);
         return "redirect:/basket";
     }
+
+    @GetMapping("/delete/{itemName}")
+    public String deleteItem(@PathVariable("itemName") String itemName) {
+        shoppingCartService.deleteItem(itemName);
+        return "redirect:/basket";
+    }
 }
