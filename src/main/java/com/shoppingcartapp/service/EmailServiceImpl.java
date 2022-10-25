@@ -34,12 +34,14 @@ public class EmailServiceImpl implements EmailService {
         }
     }
 
-    public String listBeautifier(List<Item> itemList) {
+    public String prepareEmailBody(List<Item> itemList) {
         String basket = "";
+        float totalCost = 0.0F;
         for(Item item : itemList) {
             basket = basket + " " + item.getItemName()
             + " | cost: " + item.getItemCost() + " | quantity: " + item.getQuantity() + "\n";
+            totalCost += item.getItemCost();
         }
-        return basket;
+        return basket + "\nTotal Cost: " + totalCost;
     }
 }

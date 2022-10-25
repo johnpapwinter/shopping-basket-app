@@ -42,7 +42,7 @@ public class ItemController {
     }
 
     @GetMapping("/add")
-    public String addItemPage(Model model) {
+    public String viewAddItemPage(Model model) {
         model.addAttribute("formData", new ItemDTO());
         return "add-item";
     }
@@ -54,7 +54,7 @@ public class ItemController {
     }
 
     @GetMapping("/edit/{itemName}")
-    public String editItemPage(Model model, @PathVariable("itemName") String itemName) {
+    public String viewEditItemPage(Model model, @PathVariable("itemName") String itemName) {
         Item item = shoppingCartService.findItemByName(itemName).get();
         model.addAttribute("item", item);
         return "edit-item";
@@ -73,16 +73,16 @@ public class ItemController {
     }
 
     @GetMapping("/email")
-    public String emailPage(Model model) {
+    public String viewEmailPage(Model model) {
         model.addAttribute("emailData", new EmailDTO());
         return "email-page";
     }
 
     @PostMapping("/email/{emailAddress}")
-    public String emailList(@PathVariable("emailAddress") String emailAddress, EmailDTO email) {
+    public String emailShoppingList(@PathVariable("emailAddress") String emailAddress, EmailDTO email) {
         email.setRecipient(emailAddress);
-        email.setSubject("Shopping List");
-        email.setMsgBody(emailService.listBeautifier(shoppingCartService.findAllItems()));
+        email.setSubject("Buy all this stuff!");
+        email.setMsgBody(emailService.prepareEmailBody(shoppingCartService.findAllItems()));
         emailService.sendListEmail(email);
 
         return "redirect:/basket";
