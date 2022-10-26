@@ -4,39 +4,38 @@
     <meta charset="UTF-8">
     <title>Basket</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-          crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{../static/styles/styles.css}">
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles/styles.css}">
 
 </head>
 <body>
-    <header th:replace="layout :: header"></header>
+    <div class="container">
+        <header th:replace="layout :: header"></header>
 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Cost</th>
-                <th>Quantity</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="item : ${items}">
-                <td><span th:text="${item.itemName}"> Name</span></td>
-                <td><span th:text="${item.itemCost}"> Cost</span></td>
-                <td><span th:text="${item.quantity}"> Quantity</span></td>
-                <td>
-                    <a class="btn btn-secondary btn-sm" th:href="'/edit/' + ${item.itemName}">Edit Item</a>
-                    <a class="btn btn-secondary btn-sm" th:href="'/delete/' + ${item.itemName}">Remove Item</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item : ${items}">
+                    <td><span th:text="${item.itemName}"> Name</span></td>
+                    <td><span th:text="${item.itemCost}"> Cost</span></td>
+                    <td><span th:text="${item.quantity}"> Quantity</span></td>
+                    <td>
+                        <a class="btn btn-secondary btn-sm" th:href="'/edit/' + ${item.itemName}">Edit Item</a>
+                        <a class="btn btn-secondary btn-sm" th:href="'/delete/' + ${item.itemName}">Remove Item</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-    <a class="btn btn-secondary btn-lg" th:href="@{/add}">Add Item</a>
-    <a class="btn btn-secondary btn-lg" th:href="@{/email}">Email list</a>
-    <a class="btn btn-secondary btn-lg" th:href="@{/confirmation}">Empty Basket</a>
-
+        <a class="btn btn-secondary btn-lg" th:href="@{/add}">Add Item</a>
+        <a class="btn btn-secondary btn-lg" th:href="@{/email}">Email list</a>
+        <a class="btn btn-secondary btn-lg" th:href="@{/confirmation}">Empty Basket</a>
+    </div>
 </body>
 </html>

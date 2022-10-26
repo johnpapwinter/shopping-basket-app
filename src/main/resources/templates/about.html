@@ -7,22 +7,24 @@
         rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
         crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{../static/styles/styles.css}">
+    <link rel="stylesheet" th:href="@{/styles/styles.css}">
 
 </head>
 <body>
-  <header th:replace="layout :: header"></header>
+    <div class="container">
+      <header th:replace="layout :: header"></header>
 
-  <h5>About this app</h5>
-  <p>This is a simple shopping list app developed as the final project for AUEB's Coding Factory.</p>
-  <div class="container">
-      <p>How to use this app</p>
-      <ul>
-          <li>Go to the basket tab to view all items currently on your shopping list</li>
-          <li>Add, remove or update an item you wish to purchase</li>
-          <li>Send the list to your email</li>
-      </ul>
-  </div>
-
+      <h5>About this app</h5>
+      <p>This is a simple shopping list app developed as the final project for AUEB's Coding Factory.</p>
+      <div class="instructions">
+          <p>How to use this app</p>
+          <ul>
+              <li>Go to the basket tab to view all items currently on your shopping list</li>
+              <li>Add, remove or update an item you wish to purchase</li>
+              <li>Send the list to your email</li>
+              <li>When you are done shopping, empty your basket using the Empty Basket button</li>
+          </ul>
+      </div>
+    </div>
 </body>
 </html>
