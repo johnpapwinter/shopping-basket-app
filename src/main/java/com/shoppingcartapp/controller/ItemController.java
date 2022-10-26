@@ -81,10 +81,21 @@ public class ItemController {
     @PostMapping("/email/{emailAddress}")
     public String emailShoppingList(@PathVariable("emailAddress") String emailAddress, EmailDTO email) {
         email.setRecipient(emailAddress);
-        email.setSubject("Buy all this stuff!");
+        email.setSubject("Go buy all this stuff!");
         email.setMsgBody(emailService.prepareEmailBody(shoppingCartService.findAllItems()));
         emailService.sendListEmail(email);
 
         return "redirect:/basket";
+    }
+
+    @GetMapping("/confirmation")
+    public String viewEmptyBasketConfirmationPage() {
+        return "confirmation-page";
+    }
+
+    @GetMapping("/confirmation/remove")
+    public String emptyBasket() {
+        shoppingCartService.deleteAllItems();
+        return "redirect:/";
     }
 }

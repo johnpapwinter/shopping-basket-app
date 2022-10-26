@@ -17,4 +17,6 @@ public interface ShoppingCartService {
     void createItem(ItemDTO itemDTO);
 
     void deleteItem(String itemName);
+
+    void deleteAllItems();
 }

@@ -71,4 +71,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
         itemRepository.delete(found);
     }
+
+    @Override
+    @Transactional
+    public void deleteAllItems() {
+        itemRepository.deleteAll();
+    }
 }
