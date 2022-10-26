@@ -21,6 +21,14 @@
             <input type="email" class="form-control" placeholder="Enter recipient" th:field="*{recipient}" autofocus />
           </div>
         </div>
+          <div class="row mb-3">
+              <label class="col-md-1 col-form-label">Enter a message</label>
+              <div class="col-md-6">
+                  <textarea class="form-control" th:field="*{msgBody}">
+
+                  </textarea>
+              </div>
+          </div>
         <input class="btn btn-secondary" type="submit" value="Send" />
         <a class="btn btn-secondary" th:href="@{/basket}">Cancel</a>
       </form>

@@ -82,7 +82,7 @@ public class ItemController {
     public String emailShoppingList(@PathVariable("emailAddress") String emailAddress, EmailDTO email) {
         email.setRecipient(emailAddress);
         email.setSubject("Go buy all this stuff!");
-        email.setMsgBody(emailService.prepareEmailBody(shoppingCartService.findAllItems()));
+        email.setMsgBody(emailService.prepareEmailBody(shoppingCartService.findAllItems(), email.getMsgBody()));
         emailService.sendListEmail(email);
 
         return "redirect:/basket";

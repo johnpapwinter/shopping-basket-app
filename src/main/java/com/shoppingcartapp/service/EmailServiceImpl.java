@@ -34,7 +34,7 @@ public class EmailServiceImpl implements EmailService {
         }
     }
 
-    public String prepareEmailBody(List<Item> itemList) {
+    public String prepareEmailBody(List<Item> itemList, String message) {
         String basket = "";
         float totalCost = 0.0F;
         for(Item item : itemList) {
@@ -42,6 +42,6 @@ public class EmailServiceImpl implements EmailService {
             + " | cost: " + item.getItemCost() + " | quantity: " + item.getQuantity() + "\n";
             totalCost += item.getItemCost();
         }
-        return basket + "\nTotal Cost: " + totalCost;
+        return basket + "\nTotal Cost: " + totalCost + "\n\n" + message;
     }
 }
