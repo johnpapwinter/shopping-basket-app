@@ -94,7 +94,7 @@ public class ItemController {
     @GetMapping("/confirmation/remove")
     public String emptyBasket() {
         shoppingCartService.deleteAllItems();
-        return "redirect:/";
+        return "redirect:/home";
     }
 
     @GetMapping("/login")
