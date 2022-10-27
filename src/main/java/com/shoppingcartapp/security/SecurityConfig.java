@@ -21,8 +21,12 @@ public class SecurityConfig {
                 .password(passwordEncoder().encode("123"))
                 .roles("USER")
                 .build();
+        UserDetails user2 = User.withUsername("user2")
+                .password(passwordEncoder().encode("456"))
+                .roles("USER")
+                .build();
 
-        return new InMemoryUserDetailsManager(user1);
+        return new InMemoryUserDetailsManager(user1, user2);
     }
 
     @Bean

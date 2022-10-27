@@ -4,5 +4,5 @@ import com.shoppingcartapp.dto.EmailDTO;
 
 public interface EmailService {
 
-    String sendListEmail(EmailDTO emailDTO);
+    String emailShoppingList(EmailDTO emailDTO);
 }

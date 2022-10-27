@@ -80,10 +80,8 @@ public class ItemController {
 
     @PostMapping("/email/{emailAddress}")
     public String emailShoppingList(@PathVariable("emailAddress") String emailAddress, EmailDTO email) {
-        email.setRecipient(emailAddress);
-        email.setSubject("Go buy all this stuff!");
         email.setMsgBody(emailService.prepareEmailBody(shoppingCartService.findAllItems(), email.getMsgBody()));
-        emailService.sendListEmail(email);
+        emailService.emailShoppingList(email);
 
         return "redirect:/basket";
     }
@@ -97,5 +95,10 @@ public class ItemController {
     public String emptyBasket() {
         shoppingCartService.deleteAllItems();
         return "redirect:/";
+    }
+
+    @RequestMapping("/login")
+    public String viewLoginPage() {
+        return "login";
     }
 }

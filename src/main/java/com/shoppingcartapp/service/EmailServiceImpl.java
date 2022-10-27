@@ -20,7 +20,7 @@ public class EmailServiceImpl implements EmailService {
     private String sender;
 
     @Override
-    public String sendListEmail(EmailDTO emailDTO) {
+    public String emailShoppingList(EmailDTO emailDTO) {
         try {
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setFrom(sender);
