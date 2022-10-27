@@ -36,14 +36,20 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .antMatchers("/**")
                 .hasRole("USER")
-                .antMatchers("/login*")
-                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
-//                .loginPage("/login")
-                .defaultSuccessUrl("/");
+                .loginPage("/login")
+                .defaultSuccessUrl("/home", true)
+                .failureUrl("/login?error=true")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login")
+                .invalidateHttpSession(true)
+                .permitAll();
         return http.build();
     }
 

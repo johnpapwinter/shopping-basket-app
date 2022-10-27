@@ -25,7 +25,7 @@ public class ItemController {
     }
 
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String viewHomePage() {
         return "index";
     }
@@ -97,8 +97,9 @@ public class ItemController {
         return "redirect:/";
     }
 
-    @RequestMapping("/login")
+    @GetMapping("/login")
     public String viewLoginPage() {
         return "login";
     }
+
 }
