@@ -50,6 +50,7 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/login")
                 .invalidateHttpSession(true)
                 .permitAll();
+
         return http.build();
     }
 
