@@ -33,9 +33,17 @@
             </tbody>
         </table>
 
-        <a class="btn btn-secondary btn-lg" th:href="@{/add}">Add Item</a>
-        <a class="btn btn-secondary btn-lg" th:href="@{/email}">Email list</a>
-        <a class="btn btn-secondary btn-lg" th:href="@{/confirmation}">Empty Basket</a>
+        <div class="row">
+            <div class="col-lg-4">
+                <a class="btn btn-secondary btn-lg" th:href="@{/add}">Add Item</a>
+            </div>
+            <div class="col-lg-4">
+                <a class="btn btn-secondary btn-lg" th:href="@{/email}">Email list</a>
+            </div>
+            <div class="col-lg-4">
+                <a class="btn btn-secondary btn-lg" th:href="@{/confirmation}">Empty Basket</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
