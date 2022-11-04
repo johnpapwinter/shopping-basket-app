@@ -31,27 +31,26 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf()
+        return http
+                .csrf()
                 .disable()
-                .authorizeRequests()
-                .antMatchers("/**")
-                .hasRole("USER")
-                .anyRequest()
-                .authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/home", true)
-                .failureUrl("/login?error=true")
-                .permitAll()
-                .and()
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/login")
-                .invalidateHttpSession(true)
-                .permitAll();
+                .authorizeRequests(auth -> auth
+                        .antMatchers("/**")
+                        .hasRole("USER")
+                        .anyRequest()
+                        .authenticated())
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/home", true)
+                        .failureUrl("/login?error=true")
+                        .permitAll())
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login")
+                        .invalidateHttpSession(true)
+                        .permitAll())
+                .build();
 
-        return http.build();
     }
 
     @Bean
