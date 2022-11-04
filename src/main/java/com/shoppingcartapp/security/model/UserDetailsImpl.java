@@ -4,30 +4,41 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserDetailsImpl implements UserDetails {
 
-    private final AppUser appUser;
+    private String username;
+    private String password;
+    private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImpl(AppUser appUser) {
-        this.appUser = appUser;
+    public UserDetailsImpl(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+        this.username = username;
+        this.password = password;
+        this.authorities = authorities;
+    }
+
+    public static UserDetailsImpl buildUser(AppUser appUser) {
+        List<GrantedAuthority> authorities = appUser.getAppRoles().stream().map(role ->
+                new SimpleGrantedAuthority(role.getRoleNames().name())).collect(Collectors.toList());
+        return new UserDetailsImpl(appUser.getUsername(), appUser.getPassword(), authorities);
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
 
     @Override
     public String getPassword() {
-        return appUser.getPassword();
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return appUser.getUsername();
+        return username;
     }
 
     @Override

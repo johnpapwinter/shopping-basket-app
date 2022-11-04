@@ -1,33 +1,24 @@
 package com.shoppingcartapp.security;
 
+import com.shoppingcartapp.security.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Bean
-    public InMemoryUserDetailsManager userDetailsManager() {
-        UserDetails user1 = User.withUsername("user1")
-                .password(passwordEncoder().encode("123"))
-                .roles("USER")
-                .build();
-        UserDetails user2 = User.withUsername("user2")
-                .password(passwordEncoder().encode("456"))
-                .roles("USER")
-                .build();
+    private final UserDetailsServiceImpl userDetailsService;
 
-        return new InMemoryUserDetailsManager(user1, user2);
+    public SecurityConfig(UserDetailsServiceImpl userDetailsService) {
+        this.userDetailsService = userDetailsService;
     }
+
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -36,9 +27,10 @@ public class SecurityConfig {
                 .disable()
                 .authorizeRequests(auth -> auth
                         .antMatchers("/**")
-                        .hasRole("USER")
+                        .hasAuthority("USER")
                         .anyRequest()
                         .authenticated())
+                .userDetailsService(userDetailsService)
                 .formLogin(form -> form
                         .loginPage("/login")
                         .defaultSuccessUrl("/home", true)
