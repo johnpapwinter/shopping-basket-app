@@ -10,7 +10,7 @@ This app was developed as the final project for AUEB's Coding Factory.
 
 ## Upcoming Features:
 - User registration
-- Sorting of columns
+- Sort columns
 - Store purchased items and export to view expenses
 - Night mode on UI
 
