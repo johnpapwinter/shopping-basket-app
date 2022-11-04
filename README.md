@@ -6,10 +6,10 @@ This app was developed as the final project for AUEB's Coding Factory.
 - Store your current shopping basket into the database
 - Send your shopping list to an email of your choice
 - Empty the basket when done
-- App security with in-memory login / logout
+- App security, authenticating against a database using JPA
 
 ## Upcoming Features:
-- Database authentication and user registration
+- User registration
 - Sorting of columns
 - Store purchased items and export to view expenses
 - Night mode on UI
