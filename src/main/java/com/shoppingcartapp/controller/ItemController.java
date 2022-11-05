@@ -97,9 +97,4 @@ public class ItemController {
         return "redirect:/home";
     }
 
-    @GetMapping("/login")
-    public String viewLoginPage() {
-        return "login";
-    }
-
 }

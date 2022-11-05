@@ -26,10 +26,13 @@ public class SecurityConfig {
                 .csrf()
                 .disable()
                 .authorizeRequests(auth -> auth
+                        .antMatchers("/registration")
+                        .permitAll()
                         .antMatchers("/**")
                         .hasAuthority("USER")
                         .anyRequest()
-                        .authenticated())
+                        .authenticated()
+                )
                 .userDetailsService(userDetailsService)
                 .formLogin(form -> form
                         .loginPage("/login")
