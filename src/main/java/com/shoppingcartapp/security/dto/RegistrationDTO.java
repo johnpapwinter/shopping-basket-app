@@ -1,4 +1,4 @@
-package com.shoppingcartapp.dto;
+package com.shoppingcartapp.security.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +14,8 @@ public class RegistrationDTO {
     private String username;
 
     private String password;
+
+    private String confirmPassword;
 
     private Enum userRole;
 

@@ -1,6 +1,6 @@
 package com.shoppingcartapp.security.service;
 
-import com.shoppingcartapp.dto.RegistrationDTO;
+import com.shoppingcartapp.security.dto.RegistrationDTO;
 import com.shoppingcartapp.security.model.AppUser;
 
 import java.util.Optional;
