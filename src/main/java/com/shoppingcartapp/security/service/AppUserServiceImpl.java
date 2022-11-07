@@ -32,6 +32,7 @@ public class AppUserServiceImpl implements AppUserService {
     @Override
     @Transactional
     public void addNewUser(RegistrationDTO registrationDTO) throws IllegalStateException {
+        System.out.println("SERVICE CALLED");
         appUserRepository.findAppUserByUsername(registrationDTO.getUsername())
                 .ifPresent(theUser -> {
                     throw new IllegalStateException("User already exists");
@@ -42,6 +43,7 @@ public class AppUserServiceImpl implements AppUserService {
         Optional<AppRole> appRole = appRoleRepository.findAppRoleByRoleNames(RoleList.USER);
         appRole.get().getAppUsers().add(newAppUser);
         newAppUser.getAppRoles().add(appRole.get());
+
 
         appUserRepository.save(newAppUser);
         appRoleRepository.save(appRole.get());

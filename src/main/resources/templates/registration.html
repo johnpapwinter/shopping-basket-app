@@ -12,25 +12,25 @@
 <body>
     <div class="container">
 
-        <form action="#" th:action="" th:object="" method="post">
+        <form action="#" th:action="@{/registration/save}" th:object="${registrationData}" method="post">
             <div class="row mb-3">
                 <label class="col-md-1 col-form-label">Username</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Enter username" th:field="" autofocus />
+                    <input type="text" class="form-control" placeholder="Enter username" th:field="*{username}" autofocus />
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-md-1 col-form-label">Enter password</label>
                 <div class="col-md-6">
-                    <input type="password" class="form-control" placeholder="Enter password" th:field="" />
+                    <input type="password" class="form-control" placeholder="Enter password" th:field="*{password}" />
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-md-1 col-form-label">Confirm password</label>
                 <div class="col-md-6">
-                    <input type="password" class="form-control" placeholder="Confirm password" th:field="" />
+                    <input type="password" class="form-control" placeholder="Confirm password" th:field="*{confirmPassword}" />
                 </div>
             </div>
 

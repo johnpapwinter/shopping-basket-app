@@ -5,14 +5,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
 public class RegistrationDTO {
 
+    @NotNull
+    @NotEmpty
     private String username;
 
+    @NotNull
+    @NotEmpty
     private String password;
 
     private String confirmPassword;

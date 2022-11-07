@@ -26,7 +26,7 @@ public class SecurityConfig {
                 .csrf()
                 .disable()
                 .authorizeRequests(auth -> auth
-                        .antMatchers("/registration")
+                        .antMatchers("/registration/**")
                         .permitAll()
                         .antMatchers("/**")
                         .hasAuthority("USER")
