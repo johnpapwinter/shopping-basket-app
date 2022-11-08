@@ -1,5 +1,6 @@
 package com.shoppingcartapp.security.service;
 
+import com.shoppingcartapp.exceptions.UsernameAlreadyExistsException;
 import com.shoppingcartapp.security.dto.RegistrationDTO;
 import com.shoppingcartapp.security.enums.RoleList;
 import com.shoppingcartapp.security.model.AppRole;
@@ -32,10 +33,9 @@ public class AppUserServiceImpl implements AppUserService {
     @Override
     @Transactional
     public void addNewUser(RegistrationDTO registrationDTO) throws IllegalStateException {
-        System.out.println("SERVICE CALLED");
         appUserRepository.findAppUserByUsername(registrationDTO.getUsername())
                 .ifPresent(theUser -> {
-                    throw new IllegalStateException("User already exists");
+                    throw new UsernameAlreadyExistsException("User already exists");
                 });
         AppUser newAppUser = new AppUser(registrationDTO.getUsername(), encoder.encode(registrationDTO.getPassword()));
 
