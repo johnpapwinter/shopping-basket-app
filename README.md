@@ -13,6 +13,7 @@ This app was developed as the final project for AUEB's Coding Factory.
 - Sort columns
 - Store purchased items and export to view expenses
 - Night mode on UI
+- Admin user role that handles registered users
 
 ## Technologies used:
 - Java
