@@ -1,5 +1,6 @@
 package com.shoppingcartapp.security.dto;
 
+import com.shoppingcartapp.security.enums.RoleList;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,16 +16,18 @@ import javax.validation.constraints.NotNull;
 public class RegistrationDTO {
 
     @NotNull
-    @NotEmpty
+    @NotEmpty(message = "Username should not be empty")
     private String username;
 
     @NotNull
-    @NotEmpty
+    @NotEmpty(message = "Password should not be empty")
     private String password;
 
+    @NotNull
+    @NotEmpty(message = "Please confirm your password")
     private String confirmPassword;
 
-    private Enum userRole;
+    private RoleList userRole;
 
     public RegistrationDTO(String username, String password) {
         this.username = username;

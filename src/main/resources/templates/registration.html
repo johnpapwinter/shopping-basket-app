@@ -13,10 +13,13 @@
     <div class="container">
 
         <form action="#" th:action="@{/registration/save}" th:object="${registrationData}" method="post">
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}"></div>
             <div class="row mb-3">
                 <label class="col-md-1 col-form-label">Username</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Enter username" th:field="*{username}" autofocus />
+                    <input type="text" class="form-control" placeholder="Enter username" th:field="*{username}"
+                           th:errorclass="is-invalid" autofocus />
+                    <p th:errors="*{username}" class="text-danger" th:if="${#fields.hasErrors('username')}"></p>
                 </div>
             </div>
 
@@ -24,6 +27,7 @@
                 <label class="col-md-1 col-form-label">Enter password</label>
                 <div class="col-md-6">
                     <input type="password" class="form-control" placeholder="Enter password" th:field="*{password}" />
+                    <p th:errors="*{password}" class="text-danger" th:if="${#fields.hasErrors('password')}"></p>
                 </div>
             </div>
 
@@ -31,6 +35,7 @@
                 <label class="col-md-1 col-form-label">Confirm password</label>
                 <div class="col-md-6">
                     <input type="password" class="form-control" placeholder="Confirm password" th:field="*{confirmPassword}" />
+                    <p th:errors="*{confirmPassword}" class="text-danger" th:if="${#fields.hasErrors('confirmPassword')}"></p>
                 </div>
             </div>
 
