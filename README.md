@@ -3,7 +3,7 @@ This app was developed as the final project for AUEB's Coding Factory.
 
 ## Features:
 - Add, edit, remove an item from your shopping basket
-- Store your current shopping basket into the database
+- Shopping basket is stored into the database
 - Send your shopping list to an email of your choice
 - Empty the basket when done
 - App security, authenticate against a database using JPA
