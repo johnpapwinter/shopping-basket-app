@@ -13,7 +13,6 @@ import java.util.List;
 @Service
 public class EmailServiceImpl implements EmailService {
 
-    @Autowired
     private JavaMailSender javaMailSender;
 
     @Value("${spring.mail.username}")
