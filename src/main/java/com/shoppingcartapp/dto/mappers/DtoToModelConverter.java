@@ -1,4 +1,4 @@
-package com.shoppingcartapp.dto.converters;
+package com.shoppingcartapp.dto.mappers;
 
 import com.shoppingcartapp.dto.ItemDTO;
 import com.shoppingcartapp.model.Item;

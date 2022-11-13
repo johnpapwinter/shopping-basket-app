@@ -1,4 +1,4 @@
-package com.shoppingcartapp.security.dto.converter;
+package com.shoppingcartapp.security.dto.mapper;
 
 import com.shoppingcartapp.security.dto.RegistrationDTO;
 import com.shoppingcartapp.security.model.AppUser;

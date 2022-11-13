@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-import static com.shoppingcartapp.dto.converters.DtoToModelConverter.dtoToModel;
+import static com.shoppingcartapp.dto.mappers.DtoToModelConverter.dtoToModel;
 
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
