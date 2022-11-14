@@ -24,8 +24,6 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-                .csrf()
-                .disable()
                 .authorizeRequests(auth -> auth
                         .antMatchers("/registration/**")
                         .permitAll()
@@ -43,6 +41,7 @@ public class SecurityConfig {
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/login")
+                        .clearAuthentication(true)
                         .invalidateHttpSession(true)
                         .permitAll())
                 .build();
