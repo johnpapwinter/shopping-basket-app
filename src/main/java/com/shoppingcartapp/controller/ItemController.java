@@ -83,7 +83,8 @@ public class ItemController {
     @PostMapping("/email/{emailAddress}")
     public String emailShoppingList(@PathVariable("emailAddress") String emailAddress, EmailDTO email) {
         email.setMsgBody(emailService.prepareEmailBody(shoppingCartService.findAllItems(), email.getMsgBody()));
-        emailService.emailShoppingList(email);
+//        emailService.emailShoppingList(email);
+        emailService.emailListWithAttachedExcel(email);
 
         return "redirect:/basket";
     }
