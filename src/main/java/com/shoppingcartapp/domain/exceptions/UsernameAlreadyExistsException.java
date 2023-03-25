@@ -1,4 +1,4 @@
-package com.shoppingcartapp.exceptions;
+package com.shoppingcartapp.domain.exceptions;
 
 public class UsernameAlreadyExistsException extends RuntimeException {
     public UsernameAlreadyExistsException() {

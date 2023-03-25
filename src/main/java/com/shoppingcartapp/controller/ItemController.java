@@ -1,14 +1,16 @@
 package com.shoppingcartapp.controller;
 
-import com.shoppingcartapp.dto.ItemDTO;
-import com.shoppingcartapp.dto.EmailDTO;
-import com.shoppingcartapp.model.Item;
+import com.shoppingcartapp.domain.dto.ItemDTO;
+import com.shoppingcartapp.domain.dto.EmailDTO;
+import com.shoppingcartapp.domain.model.Item;
 import com.shoppingcartapp.service.EmailServiceImpl;
 import com.shoppingcartapp.service.ShoppingCartServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 
 @Controller
@@ -95,6 +97,13 @@ public class ItemController {
     public String emptyBasket() {
         shoppingCartService.deleteAllItems();
         return "redirect:/home";
+    }
+
+    @GetMapping("/xls")
+    public String exportToXls() throws IOException {
+        shoppingCartService.exportToExcel();
+
+        return "redirect:/basket";
     }
 
 }

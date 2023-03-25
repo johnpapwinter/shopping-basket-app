@@ -1,8 +1,10 @@
 package com.shoppingcartapp.service;
 
-import com.shoppingcartapp.dto.ItemDTO;
-import com.shoppingcartapp.model.Item;
+import com.shoppingcartapp.domain.dto.ItemDTO;
+import com.shoppingcartapp.domain.model.Item;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,4 +21,6 @@ public interface ShoppingCartService {
     void deleteItem(String itemName);
 
     void deleteAllItems();
+
+    void exportToExcel() throws IOException;
 }

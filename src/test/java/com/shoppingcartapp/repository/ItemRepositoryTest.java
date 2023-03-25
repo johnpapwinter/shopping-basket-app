@@ -1,6 +1,7 @@
 package com.shoppingcartapp.repository;
 
-import com.shoppingcartapp.model.Item;
+import com.shoppingcartapp.domain.model.Item;
+import com.shoppingcartapp.domain.repository.ItemRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

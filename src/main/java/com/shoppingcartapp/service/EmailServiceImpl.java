@@ -1,8 +1,7 @@
 package com.shoppingcartapp.service;
 
-import com.shoppingcartapp.dto.EmailDTO;
-import com.shoppingcartapp.model.Item;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.shoppingcartapp.domain.dto.EmailDTO;
+import com.shoppingcartapp.domain.model.Item;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -17,6 +16,10 @@ public class EmailServiceImpl implements EmailService {
 
     @Value("${spring.mail.username}")
     private String sender;
+
+    public EmailServiceImpl(JavaMailSender javaMailSender) {
+        this.javaMailSender = javaMailSender;
+    }
 
     @Override
     public String emailShoppingList(EmailDTO emailDTO) {

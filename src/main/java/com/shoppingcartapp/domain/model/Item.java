@@ -1,4 +1,4 @@
-package com.shoppingcartapp.model;
+package com.shoppingcartapp.domain.model;
 
 
 import lombok.*;

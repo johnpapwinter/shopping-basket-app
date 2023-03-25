@@ -1,4 +1,4 @@
-package com.shoppingcartapp.dto;
+package com.shoppingcartapp.domain.dto;
 
 import lombok.*;
 

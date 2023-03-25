@@ -1,10 +1,9 @@
-package com.shoppingcartapp.repository;
+package com.shoppingcartapp.domain.repository;
 
-import com.shoppingcartapp.model.Item;
+import com.shoppingcartapp.domain.model.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Repository

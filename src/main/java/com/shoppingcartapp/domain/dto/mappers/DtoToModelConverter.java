@@ -1,7 +1,7 @@
-package com.shoppingcartapp.dto.mappers;
+package com.shoppingcartapp.domain.dto.mappers;
 
-import com.shoppingcartapp.dto.ItemDTO;
-import com.shoppingcartapp.model.Item;
+import com.shoppingcartapp.domain.dto.ItemDTO;
+import com.shoppingcartapp.domain.model.Item;
 
 public class DtoToModelConverter {
 

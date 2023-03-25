@@ -1,6 +1,6 @@
 package com.shoppingcartapp.security.service;
 
-import com.shoppingcartapp.exceptions.UsernameAlreadyExistsException;
+import com.shoppingcartapp.domain.exceptions.UsernameAlreadyExistsException;
 import com.shoppingcartapp.security.dto.RegistrationDTO;
 import com.shoppingcartapp.security.enums.RoleList;
 import com.shoppingcartapp.security.model.AppRole;

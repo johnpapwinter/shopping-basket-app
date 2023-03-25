@@ -1,6 +1,6 @@
 package com.shoppingcartapp.service;
 
-import com.shoppingcartapp.dto.EmailDTO;
+import com.shoppingcartapp.domain.dto.EmailDTO;
 
 public interface EmailService {
 
