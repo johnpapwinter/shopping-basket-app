@@ -89,11 +89,18 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         List<Item> itemList = itemRepository.findAll();
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Shopping_List");
+        CellStyle cellStyle = workbook.createCellStyle();
+        Font font = workbook.createFont();
+        font.setBold(true);
+        cellStyle.setFont(font);
 
         Row headers = sheet.createRow(0);
         headers.createCell(0).setCellValue("NAME");
+        headers.getCell(0).setCellStyle(cellStyle);
         headers.createCell(1).setCellValue("COST");
+        headers.getCell(1).setCellStyle(cellStyle);
         headers.createCell(2).setCellValue("QUANTITY");
+        headers.getCell(2).setCellStyle(cellStyle);
 
 
         for (int i = 0; i < itemList.size(); i++) {
